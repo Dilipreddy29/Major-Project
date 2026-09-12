@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './components/common/ProtectedRoute';
-import MainLayout from './layouts/MainLayout';
+import AppLayout from './components/layout/AppLayout';
 import LoginPage from './pages/Login/LoginPage';
 import SignupPage from './pages/Signup/SignupPage';
 import DashboardPage from './pages/Dashboard';
@@ -24,12 +24,12 @@ export const App: React.FC = () => {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
 
-          {/* Protected Application Routes */}
+          {/* Protected Application Shell */}
           <Route
             path="/"
             element={
               <ProtectedRoute>
-                <MainLayout />
+                <AppLayout />
               </ProtectedRoute>
             }
           >
